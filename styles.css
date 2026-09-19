@@ -438,7 +438,22 @@ button, input, textarea { font: inherit; }
 }
 
 .project-visual.no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+}
+
+.project-fallback {
+  display: inline-block;
+  padding: 0 20px;
+  color: rgba(255,255,255,0.86);
+  font-size: clamp(1.1rem, 2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .project-header {
