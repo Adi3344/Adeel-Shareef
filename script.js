@@ -43,7 +43,16 @@ if (navToggle && siteNav) {
   navToggle.addEventListener('click', () => {
     const expanded = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!expanded));
+    navToggle.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
     siteNav.classList.toggle('open');
+  });
+
+  siteNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'Open navigation');
+      siteNav.classList.remove('open');
+    });
   });
 }
 const contactForm = document.getElementById('contact-form');
