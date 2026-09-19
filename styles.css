@@ -717,6 +717,8 @@ button, input, textarea { font: inherit; }
     z-index: 10;
     display: grid;
     gap: 0;
+    text-align: left;
+    justify-items: stretch;
     padding: 8px;
     border: 1px solid var(--line);
     border-radius: 14px;
