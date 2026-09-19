@@ -324,24 +324,25 @@ button, input, textarea { font: inherit; }
 
 @media (max-width: 640px) {
   .hero {
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   .hero-grid {
     border-radius: 24px;
-    gap: 18px;
-    padding: 18px 14px 8px;
+    gap: 8px;
+    padding: 6px 12px 4px 2px;
   }
 
   .eyebrow {
     letter-spacing: 0.08em;
     font-size: 0.68rem;
+    margin-bottom: 8px;
   }
 
   .hero-intro {
     font-size: 0.48em;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .hero-copy h1 {
@@ -370,17 +371,34 @@ button, input, textarea { font: inherit; }
 
   .lead {
     font-size: 0.94rem;
+    margin-top: 12px;
   }
 
   .hero-actions {
-    margin-top: 22px;
+    margin-top: 16px;
+    gap: 8px;
   }
 
   .hero-stats {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 8px;
+    margin-top: 14px;
   }
 
+  .hero-stats div {
+    padding: 12px 10px;
+  }
+
+  .hero-visual .portrait-card {
+    width: min(100%, 290px);
+    min-height: 290px;
+    padding: 6px;
+  }
+
+  .hero-visual .portrait-frame {
+    border-radius: 12px;
+    aspect-ratio: 0.9;
+  }
 }
 
 .hero-stats {
@@ -388,6 +406,13 @@ button, input, textarea { font: inherit; }
   display: grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 14px;
+}
+
+@media (max-width: 640px) {
+  .hero-stats {
+    margin-top: 18px;
+    gap: 10px;
+  }
 }
 
 .hero-stats div {
