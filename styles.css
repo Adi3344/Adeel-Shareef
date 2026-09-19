@@ -372,14 +372,15 @@ button, input, textarea { font: inherit; }
   border: 1px solid rgba(255,255,255,0.06);
   background: rgba(255,255,255,0.006);
   overflow: hidden;
-  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.38s ease, box-shadow 0.38s ease;
+  will-change: transform, box-shadow;
 }
 
 .project-card:hover,
 .project-card:focus-within {
-  transform: translateY(-5px);
-  border-color: rgba(238, 155, 101, 0.26);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.08);
+  transform: translateY(-10px);
+  border-color: rgba(238, 155, 101, 0.32);
+  box-shadow: 0 20px 38px rgba(0,0,0,0.18);
 }
 
 .project-card .project-link {
@@ -419,12 +420,14 @@ button, input, textarea { font: inherit; }
   object-fit: cover;
   display: block;
   filter: saturate(1) contrast(1.03) brightness(0.96);
-  transition: transform 0.35s ease;
+  transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+  transform-origin: center center;
 }
 
 .project-card:hover .project-visual img,
 .project-card:focus-within .project-visual img {
-  transform: scale(1.02);
+  transform: scale(1.12) translateY(-6px);
+  filter: saturate(1.08) contrast(1.06) brightness(1);
 }
 
 .project-visual.no-image {
@@ -465,7 +468,7 @@ button, input, textarea { font: inherit; }
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.02);
   color: var(--text);
-  transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s ease, background 0.35s ease;
 }
 
 .project-arrow i {
@@ -474,9 +477,9 @@ button, input, textarea { font: inherit; }
 
 .project-card:hover .project-arrow,
 .project-card:focus-within .project-arrow {
-  transform: translate(-3px, -3px);
-  border-color: rgba(238, 155, 101, 0.38);
-  background: rgba(238, 155, 101, 0.08);
+  transform: translate(6px, -6px) rotate(-45deg);
+  border-color: rgba(238, 155, 101, 0.4);
+  background: rgba(238, 155, 101, 0.1);
 }
 
 .project-card p {
