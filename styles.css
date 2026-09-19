@@ -322,7 +322,7 @@ button, input, textarea { font: inherit; }
   width: 150px;
   height: 2px;
   margin-top: 18px;
-  background: linear-gradient(90deg, rgba(61, 122, 201, 0.95), rgba(61, 122, 201, 0.95));
+  background: linear-gradient(90deg, rgba(238, 155, 101, 0.95), rgba(238, 155, 101, 0.95));
 }
 
 .skills-section {
@@ -338,29 +338,28 @@ button, input, textarea { font: inherit; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 20px 40px rgba(0,0,0,0.12);
 }
 
-.skills-list {
+.skills-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px 22px;
 }
 
-.skill-row {
-  display: grid;
-  grid-template-columns: 110px minmax(0, 1fr) 175px 56px;
-  align-items: center;
-  gap: 12px;
-  min-height: 52px;
-}
-
-.skill-label-group {
+.skill-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 10px;
   min-width: 0;
 }
 
-.skill-name,
-.skill-badge {
+.skill-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.skill-name {
   font-size: 0.78rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -368,28 +367,11 @@ button, input, textarea { font: inherit; }
   color: rgba(255,255,255,0.82);
 }
 
-.skill-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 145px;
-  min-height: 34px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(238, 155, 101, 0.9);
-  background: rgba(238, 155, 101, 0.08);
-  box-shadow: 0 0 0 1px rgba(238, 155, 101, 0.18);
-}
-
 .skill-value {
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   color: rgba(255,255,255,0.8);
   font-weight: 600;
-}
-
-.badge-value {
-  text-align: right;
 }
 
 .skill-track {
@@ -407,8 +389,8 @@ button, input, textarea { font: inherit; }
   inset: 0 auto 0 0;
   display: block;
   border-radius: inherit;
-  background: linear-gradient(90deg, #e99d6f 0%, #f4ba87 100%);
-  box-shadow: 0 0 18px rgba(238, 155, 101, 0.3);
+  background: linear-gradient(90deg, #f0b17d 0%, #ee9b65 100%);
+  box-shadow: 0 0 18px rgba(238, 155, 101, 0.28);
 }
 
 .about-grid {
