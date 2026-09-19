@@ -385,6 +385,7 @@ button, input, textarea { font: inherit; }
 }
 
 .skill-value {
+  flex-shrink: 0;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
   color: rgba(255,255,255,0.8);
@@ -954,11 +955,20 @@ button, input, textarea { font: inherit; }
   }
 
   .hero-stats,
+  .skills-grid,
   .services-grid,
   .work-grid,
   .testimonial-row,
   .field-row {
     grid-template-columns: 1fr;
+  }
+
+  .skill-head {
+    gap: 8px;
+  }
+
+  .skill-name {
+    letter-spacing: 0.08em;
   }
 
   .footer-wrap {
