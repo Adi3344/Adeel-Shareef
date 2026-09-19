@@ -55,7 +55,9 @@ module.exports = async (request, response) => {
   const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
   const resendKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.RESEND_FROM_EMAIL || 'Portfolio website <onboarding@resend.dev>';
+  const configuredFromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+  const fromAddress = configuredFromEmail.match(/<([^>]+)>/)?.[1] || configuredFromEmail.trim();
+  const fromEmail = `Adeel Shareef <${fromAddress}>`;
 
   if (!supabaseUrl || !supabaseKey || !resendKey) {
     console.error('Missing contact form environment variables.');
