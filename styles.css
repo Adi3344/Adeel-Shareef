@@ -61,20 +61,24 @@ button, input, textarea { font: inherit; }
 
 .brand-block {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 80px;
 }
 
-.brand-name {
-  font-size: 0.8rem;
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  color: #14181d;
+  font-size: 0.82rem;
+  font-weight: 900;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.82);
-}
-
-.brand-meta {
-  color: var(--muted);
-  font-size: 0.66rem;
+  box-shadow: 0 14px 28px rgba(238, 155, 101, 0.22);
 }
 
 .nav-toggle {
@@ -175,18 +179,36 @@ button, input, textarea { font: inherit; }
 }
 
 .hero {
-  padding-top: 28px;
-  padding-bottom: 24px;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 18px 0 auto 0;
+  height: 560px;
+  background: radial-gradient(circle at 20% 20%, rgba(238, 155, 101, 0.14), transparent 42%);
+  pointer-events: none;
 }
 
 .hero-grid {
+  position: relative;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 34px;
   align-items: stretch;
+  padding: 22px 18px 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.005));
+  overflow: hidden;
 }
 
 .hero-copy {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -195,30 +217,67 @@ button, input, textarea { font: inherit; }
 }
 
 .hero-visual {
+  position: relative;
+  z-index: 1;
   padding-right: 12px;
 }
 
 .eyebrow {
   margin: 0 0 14px;
   color: var(--primary);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.eyebrow span {
+  color: rgba(255,255,255,0.8);
 }
 
 .hero-copy h1 {
   margin: 0;
-  max-width: 540px;
+  max-width: 760px;
   font-family: var(--heading-font);
-  font-size: clamp(3rem, 4.3vw, 5.3rem);
-  line-height: 0.96;
-  letter-spacing: -0.06em;
+  font-size: clamp(3.2rem, 5vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.07em;
+  font-weight: 800;
+  color: #f3f4f6;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.hero-intro {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.38em;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(255,255,255,0.96);
   font-weight: 700;
 }
 
-.hero-copy h1 span {
+.typing-wrap {
+  display: inline-block;
+  min-height: 1.15em;
   color: var(--primary-strong);
+}
+
+.typing-text {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 4px;
+  color: rgba(255,255,255,0.75);
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
 }
 
 .lead {
@@ -276,22 +335,24 @@ button, input, textarea { font: inherit; }
   width: min(100%, 500px);
   height: 100%;
   min-height: 500px;
-  padding: 12px;
-  border-radius: 22px;
-  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.08);
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.012));
   display: flex;
   flex-direction: column;
+  box-shadow: 0 32px 65px rgba(0, 0, 0, 0.22);
 }
 
 .portrait-frame {
   flex: 1;
   min-height: 100%;
   height: 100%;
-  border-radius: 16px;
+  border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.06);
   background: #d8d8d8;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
 .portrait-frame img {
