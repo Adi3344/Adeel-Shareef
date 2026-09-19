@@ -376,9 +376,9 @@ button, input, textarea { font: inherit; }
   min-height: 34px;
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(58, 156, 255, 0.9);
-  background: rgba(58, 156, 255, 0.08);
-  box-shadow: 0 0 0 1px rgba(58, 156, 255, 0.16);
+  border: 1px solid rgba(238, 155, 101, 0.9);
+  background: rgba(238, 155, 101, 0.08);
+  box-shadow: 0 0 0 1px rgba(238, 155, 101, 0.18);
 }
 
 .skill-value {
@@ -407,8 +407,8 @@ button, input, textarea { font: inherit; }
   inset: 0 auto 0 0;
   display: block;
   border-radius: inherit;
-  background: linear-gradient(90deg, #1b68d8 0%, #3a9cff 100%);
-  box-shadow: 0 0 18px rgba(58, 156, 255, 0.42);
+  background: linear-gradient(90deg, #e99d6f 0%, #f4ba87 100%);
+  box-shadow: 0 0 18px rgba(238, 155, 101, 0.3);
 }
 
 .about-grid {
