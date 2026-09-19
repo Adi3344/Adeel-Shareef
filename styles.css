@@ -209,6 +209,7 @@ button, input, textarea { font: inherit; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-top: 14px;
   padding-left: 12px;
   padding-right: 8px;
 }
@@ -309,6 +310,7 @@ button, input, textarea { font: inherit; }
   }
 
   .hero-copy {
+    padding-top: 8px;
     padding-right: 0;
   }
 
@@ -331,7 +333,7 @@ button, input, textarea { font: inherit; }
   .hero-grid {
     border-radius: 24px;
     gap: 8px;
-    padding: 6px 12px 4px 2px;
+    padding: 30px 12px 4px 2px;
   }
 
   .eyebrow {
