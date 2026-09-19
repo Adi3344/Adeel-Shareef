@@ -62,7 +62,7 @@ if (navToggle && siteNav) {
 const typingText = document.querySelector('.typing-text');
 
 if (typingText) {
-  const words = ['Adeel', 'a WordPress Developer', 'a Digital Designer', 'a Brand Builder'];
+  const words = ['Adeel Shareef', 'WordPress Developer', 'Digital Designer'];
   let wordIndex = 0;
   let charIndex = 0;
   let deleting = false;
@@ -88,7 +88,7 @@ if (typingText) {
       }
     }
 
-    const speed = deleting ? 50 : 95;
+    const speed = deleting ? 45 : 85;
     setTimeout(typeLoop, speed);
   };
 
