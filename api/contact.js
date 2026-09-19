@@ -1,4 +1,4 @@
-const OWNER_EMAIL = 'adeelshareef09@gmail.com';
+const OWNER_EMAIL = 'adeelshareef761@gmail.com';
 
 function clean(value, maxLength) {
   return typeof value === 'string' ? value.trim().slice(0, maxLength) : '';
