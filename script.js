@@ -62,7 +62,7 @@ if (navToggle && siteNav) {
 const typingText = document.querySelector('.typing-text');
 
 if (typingText) {
-  const words = ['Adeel Shareef', 'a WordPress Developer', 'a Digital Designer', 'a Brand Builder'];
+  const words = ['Adeel', 'a WordPress Developer', 'a Digital Designer', 'a Brand Builder'];
   let wordIndex = 0;
   let charIndex = 0;
   let deleting = false;
@@ -75,7 +75,7 @@ if (typingText) {
 
       if (charIndex === currentWord.length) {
         deleting = true;
-        setTimeout(typeLoop, 1300);
+        setTimeout(typeLoop, 1200);
         return;
       }
     } else {
@@ -88,7 +88,7 @@ if (typingText) {
       }
     }
 
-    const speed = deleting ? 60 : 110;
+    const speed = deleting ? 50 : 95;
     setTimeout(typeLoop, speed);
   };
 
