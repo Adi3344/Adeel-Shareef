@@ -758,7 +758,9 @@ button, input, textarea { font: inherit; }
   }
 
   .footer-wrap {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
   }
 }
