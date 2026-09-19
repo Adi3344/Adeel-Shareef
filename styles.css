@@ -372,7 +372,20 @@ button, input, textarea { font: inherit; }
 }
 
 .skill-tech {
-  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  text-align: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.02);
+}
+
+.skill-tech--highlight {
+  border-color: rgba(66, 160, 255, 0.95);
+  box-shadow: 0 0 0 2px rgba(66, 160, 255, 0.12);
 }
 
 .skill-value {
