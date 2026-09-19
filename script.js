@@ -25,7 +25,7 @@ if ('IntersectionObserver' in window) {
   revealEls.forEach((el) => el.classList.add('visible'));
 }
 
-const navLinks = document.querySelectorAll('.site-nav a, .scroll-to, .brand');
+const navLinks = document.querySelectorAll('.site-nav a, .header-actions a, .scroll-to, .brand');
 navLinks.forEach((link) => {
   if (!link.getAttribute('href') || !link.getAttribute('href').startsWith('#')) return;
   link.addEventListener('click', (event) => {
@@ -34,6 +34,10 @@ navLinks.forEach((link) => {
     if (!target) return;
     event.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', targetId);
+    }
   });
 });
 
