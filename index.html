@@ -338,26 +338,27 @@
               </div>
             </div>
 
-            <form class="contact-form" action="mailto:adeelshareef09@gmail.com" method="post" enctype="text/plain">
+            <form class="contact-form" id="contact-form">
+              <input class="form-honeypot" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <div class="field-row">
                 <label>
                   Full Name
-                  <input type="text" name="full-name" placeholder="Your full name" />
+                  <input type="text" name="fullName" placeholder="Your full name" autocomplete="name" required />
                 </label>
                 <label>
                   Email
-                  <input type="email" name="email" placeholder="Your email" />
+                  <input type="email" name="email" placeholder="Your email" autocomplete="email" required />
                 </label>
               </div>
 
               <div class="field-row">
                 <label>
                   Phone
-                  <input type="text" name="phone" placeholder="Your number" />
+                  <input type="tel" name="phone" placeholder="Your number" autocomplete="tel" />
                 </label>
                 <label>
                   Project type
-                  <input type="text" name="subject" placeholder="Website / branding / SEO" />
+                  <input type="text" name="projectType" placeholder="Website / branding / SEO" />
                 </label>
               </div>
 
@@ -368,10 +369,11 @@
 
               <label>
                 Message
-                <textarea name="message" rows="5" placeholder="Tell me about your project..."></textarea>
+                <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
               </label>
 
               <button type="submit" class="button button-primary">Send message</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
             </form>
           </div>
         </section>

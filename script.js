@@ -46,3 +46,38 @@ if (navToggle && siteNav) {
     siteNav.classList.toggle('open');
   });
 }
+const contactForm = document.getElementById('contact-form');
+const formStatus = contactForm?.querySelector('.form-status');
+const submitButton = contactForm?.querySelector('button[type="submit"]');
+
+if (contactForm && formStatus && submitButton) {
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    formStatus.textContent = 'Sending your message...';
+    formStatus.className = 'form-status is-sending';
+    submitButton.disabled = true;
+
+    const formData = new FormData(contactForm);
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || 'Unable to send your message.');
+
+      contactForm.reset();
+      formStatus.textContent = 'Thanks. Your message has been sent successfully.';
+      formStatus.className = 'form-status is-success';
+    } catch (error) {
+      formStatus.textContent = error.message || 'Something went wrong. Please email me directly.';
+      formStatus.className = 'form-status is-error';
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
+}

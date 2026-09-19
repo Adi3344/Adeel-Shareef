@@ -568,6 +568,31 @@ button, input, textarea { font: inherit; }
   width: fit-content;
 }
 
+.contact-form .button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+  transform: none;
+}
+
+.form-status {
+  min-height: 1.2em;
+  margin: -4px 0 0;
+  font-size: 0.78rem;
+}
+
+.form-status.is-sending { color: var(--muted); }
+.form-status.is-success { color: #9becc0; }
+.form-status.is-error { color: #ffad9c; }
+
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .site-footer {
   padding: 18px 0 28px;
   border-top: 1px solid var(--line);
