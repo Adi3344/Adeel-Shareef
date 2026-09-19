@@ -716,9 +716,11 @@ button, input, textarea { font: inherit; }
     left: 0;
     z-index: 10;
     display: grid;
+    grid-template-columns: 1fr;
     gap: 0;
     text-align: left;
     justify-items: stretch;
+    justify-content: stretch;
     padding: 8px;
     border: 1px solid var(--line);
     border-radius: 14px;
