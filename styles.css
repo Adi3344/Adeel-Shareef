@@ -115,7 +115,7 @@ button, input, textarea { font: inherit; }
   justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 
