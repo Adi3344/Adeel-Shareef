@@ -131,6 +131,7 @@ button, input, textarea { font: inherit; }
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
+  flex-wrap: nowrap;
 }
 
 .button {
@@ -858,12 +859,53 @@ button, input, textarea { font: inherit; }
   .topbar {
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    gap: 8px;
     text-align: left;
   }
 
+  .brand-block {
+    flex: 0 0 auto;
+    min-width: 0;
+    order: 1;
+  }
+
+  .brand-name {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-meta {
+    font-size: 0.62rem;
+  }
+
+  .header-actions {
+    order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .header-actions .button-ghost {
+    display: none;
+  }
+
+  .header-actions .button-primary {
+    display: inline-flex;
+    min-height: 38px;
+    padding: 0 20px;
+    font-size: 0.66rem;
+    white-space: nowrap;
+  }
+
   .nav-toggle {
+    order: 3;
     display: block;
+    margin-left: 0;
     flex: 0 0 auto;
   }
 
