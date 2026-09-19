@@ -126,6 +126,13 @@ button, input, textarea { font: inherit; }
 .site-nav a:hover,
 .site-nav a:focus-visible { color: var(--text); }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
