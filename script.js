@@ -95,6 +95,30 @@ if (typingText) {
   typeLoop();
 }
 
+const randomBetween = (min, max) => Math.random() * (max - min) + min;
+const heroShapes = document.querySelectorAll('.shape');
+
+heroShapes.forEach((shape, index) => {
+  const driftX = randomBetween(-28, 28);
+  const driftY = randomBetween(-26, 26);
+  const driftXAlt = driftX * -0.5;
+  const driftYAlt = driftY * -0.7;
+  const rotateA = randomBetween(-28, 28);
+  const rotateB = randomBetween(-44, 44);
+  const rotateC = randomBetween(-20, 20);
+
+  shape.style.setProperty('--dx', `${driftX}px`);
+  shape.style.setProperty('--dy', `${driftY}px`);
+  shape.style.setProperty('--dx-alt', `${driftXAlt}px`);
+  shape.style.setProperty('--dy-alt', `${driftYAlt}px`);
+  shape.style.setProperty('--r1', `${rotateA}deg`);
+  shape.style.setProperty('--r2', `${rotateB}deg`);
+  shape.style.setProperty('--r3', `${rotateC}deg`);
+  shape.style.setProperty('--duration', `${randomBetween(8, 14)}s`);
+  shape.style.setProperty('--delay', `${index * 0.5}s`);
+  shape.style.animationDelay = `${index * 0.6}s`;
+});
+
 const contactForm = document.getElementById('contact-form');
 const formStatus = contactForm?.querySelector('.form-status');
 const submitButton = contactForm?.querySelector('button[type="submit"]');
