@@ -1191,12 +1191,28 @@ button, input, textarea { font: inherit; }
 }
 
 .testimonial-marquee {
+  position: relative;
   overflow: hidden;
-  padding: 8px 0;
-  border: 1px solid var(--line);
-  border-radius: 22px;
-  background: rgba(255,255,255,0.015);
+  padding: 12px 0;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 24px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.045), rgba(255,255,255,0.008));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 22px 50px rgba(0,0,0,0.14);
 }
+
+.testimonial-marquee::before,
+.testimonial-marquee::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  pointer-events: none;
+}
+
+.testimonial-marquee::before { left: 0; background: linear-gradient(90deg, var(--shell-2), transparent); }
+.testimonial-marquee::after { right: 0; background: linear-gradient(-90deg, var(--shell-2), transparent); }
 
 .testimonial-track {
   display: flex;
@@ -1213,23 +1229,51 @@ button, input, textarea { font: inherit; }
 .testimonial-card {
   flex: 0 0 360px;
   min-width: 360px;
-  padding: 18px 18px 16px;
-  border-radius: 18px;
-  border: 1px solid var(--line);
-  background: rgba(255,255,255,0.02);
+  min-height: 246px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: linear-gradient(160deg, rgba(18,24,33,0.92), rgba(255,255,255,0.035));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(238,155,101,0.42);
+  box-shadow: 0 18px 32px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 .testimonial-card p {
-  margin: 0 0 18px;
+  position: relative;
+  flex: 1;
+  margin: 0 0 22px;
+  padding-top: 26px;
   color: var(--muted);
-  line-height: 1.8;
-  font-size: 0.92rem;
+  line-height: 1.75;
+  font-size: 0.9rem;
+}
+
+.testimonial-card p::before {
+  content: '“';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  color: var(--primary);
+  font-family: Georgia, serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  opacity: 0.95;
 }
 
 .person {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .avatar {
@@ -1237,6 +1281,8 @@ button, input, textarea { font: inherit; }
   height: 38px;
   border-radius: 50%;
   display: inline-block;
+  border: 2px solid rgba(255,255,255,0.22);
+  box-shadow: 0 0 0 4px rgba(255,255,255,0.03);
 }
 
 .avatar-one { background: linear-gradient(135deg, #f3b57c, #7d89ff); }
