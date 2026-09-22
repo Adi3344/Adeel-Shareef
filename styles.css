@@ -718,6 +718,9 @@ button, input, textarea { font: inherit; }
   letter-spacing: -0.05em;
 }
 
+.heading-desktop { display: inline; }
+.heading-mobile { display: none; }
+
 .section-heading::after {
   content: '';
   display: block;
@@ -728,6 +731,9 @@ button, input, textarea { font: inherit; }
 }
 
 @media (max-width: 640px) {
+  .heading-desktop { display: none; }
+  .heading-mobile { display: inline; }
+
   .section-heading h2 {
     font-size: clamp(1.8rem, 6.5vw, 2.4rem);
     line-height: 1.05;
