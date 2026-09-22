@@ -1093,16 +1093,16 @@ button, input, textarea { font: inherit; }
 .work-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 24px;
+  gap: 26px;
 }
 
 .project-card {
   position: relative;
-  border-radius: 20px;
-  border: 1px solid rgba(255,255,255,0.06);
-  background: rgba(255,255,255,0.006);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.09);
+  background: linear-gradient(160deg, rgba(255,255,255,0.055), rgba(255,255,255,0.012));
   overflow: hidden;
-  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.38s ease, box-shadow 0.38s ease;
+  transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.38s ease, box-shadow 0.38s ease, background 0.38s ease;
   will-change: transform, box-shadow;
 }
 
@@ -1110,7 +1110,8 @@ button, input, textarea { font: inherit; }
 .project-card:focus-within {
   transform: translateY(-10px);
   border-color: rgba(238, 155, 101, 0.32);
-  box-shadow: 0 20px 38px rgba(0,0,0,0.18);
+  background: linear-gradient(160deg, rgba(238,155,101,0.09), rgba(255,255,255,0.018));
+  box-shadow: 0 24px 46px rgba(0,0,0,0.24);
 }
 
 .project-card .project-link {
@@ -1136,10 +1137,52 @@ button, input, textarea { font: inherit; }
 
 .project-visual {
   position: relative;
-  height: 240px;
+  height: 248px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-  background: rgba(255,255,255,0.03);
+  border: 8px solid rgba(13,16,21,0.5);
+  border-bottom-width: 0;
+  border-radius: 22px 22px 0 0;
+  background: #20262e;
+}
+
+.project-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 52%, rgba(13,16,21,0.72) 100%);
+  opacity: 0.72;
+  transition: opacity 0.35s ease;
+}
+
+.project-visual::before {
+  content: 'VIEW PROJECT';
+  position: absolute;
+  z-index: 1;
+  right: 16px;
+  bottom: 14px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255,255,255,0.24);
+  border-radius: 999px;
+  background: rgba(13,16,21,0.58);
+  color: rgba(255,255,255,0.86);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.project-card:hover .project-visual::after,
+.project-card:focus-within .project-visual::after {
+  opacity: 0.92;
+}
+
+.project-card:hover .project-visual::before,
+.project-card:focus-within .project-visual::before {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-visual img {
@@ -1200,17 +1243,18 @@ button, input, textarea { font: inherit; }
   flex: 1;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 18px 18px 20px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+  min-height: 165px;
+  padding: 22px 22px 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.005));
 }
 
 .project-arrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
   border: 1px solid rgba(255,255,255,0.12);
   background: rgba(255,255,255,0.02);
   color: var(--text);
@@ -1231,8 +1275,8 @@ button, input, textarea { font: inherit; }
 .project-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 0.96rem;
-  line-height: 1.7;
+  font-size: 0.88rem;
+  line-height: 1.75;
 }
 
 .testimonial-marquee {
