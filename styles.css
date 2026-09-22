@@ -795,24 +795,15 @@ button, input, textarea { font: inherit; }
   max-width: 520px;
 }
 
-.skills-heading { margin-bottom: 24px; }
-
-.skills-intro h2 {
-  max-width: 500px;
-  margin: 0;
-  font-family: var(--heading-font);
-  font-size: clamp(2.4rem, 4vw, 4.4rem);
-  line-height: 1;
-  letter-spacing: -0.06em;
-}
-
 .skills-description {
   max-width: 470px;
-  margin: 24px 0 0;
+  margin: 0;
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.8;
 }
+
+.skills-description + .skills-description { margin-top: 16px; }
 
 .skills-note {
   display: flex;
@@ -836,6 +827,67 @@ button, input, textarea { font: inherit; }
   font-size: 1.15rem;
   line-height: 1;
 }
+
+.skills-toolkit {
+  position: relative;
+  width: min(100%, 360px);
+  height: 118px;
+  margin-top: 26px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(238,155,101,0.12), rgba(255,255,255,0.02));
+  overflow: hidden;
+}
+
+.skills-toolkit::before,
+.skills-toolkit::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(238,155,101,0.26);
+  border-radius: 50%;
+  animation: toolkitOrbit 8s linear infinite;
+}
+
+.skills-toolkit::before { width: 190px; height: 190px; top: -42px; left: 82px; }
+.skills-toolkit::after { width: 270px; height: 270px; top: -82px; left: 42px; opacity: 0.45; animation-direction: reverse; }
+
+.toolkit-core {
+  position: absolute;
+  z-index: 1;
+  top: 32px;
+  left: calc(50% - 27px);
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(238,155,101,0.55);
+  border-radius: 16px;
+  background: rgba(18,24,33,0.9);
+  color: var(--primary-strong);
+  font-size: 1.45rem;
+  box-shadow: 0 0 24px rgba(238,155,101,0.18);
+}
+
+.toolkit-chip {
+  position: absolute;
+  z-index: 2;
+  padding: 5px 9px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  background: rgba(18,24,33,0.84);
+  color: rgba(255,255,255,0.78);
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.chip-html { top: 14px; left: 22px; animation: chipFloat 4s ease-in-out infinite; }
+.chip-css { right: 20px; top: 26px; animation: chipFloat 4.5s ease-in-out -1s infinite; }
+.chip-js { left: 42px; bottom: 16px; animation: chipFloat 5s ease-in-out -2s infinite; }
+.chip-wp { right: 48px; bottom: 12px; animation: chipFloat 4.2s ease-in-out -3s infinite; }
+
+@keyframes toolkitOrbit { to { transform: rotate(360deg); } }
+@keyframes chipFloat { 50% { transform: translateY(-5px); } }
 
 .skills-shell {
   padding: 30px 28px 26px;
