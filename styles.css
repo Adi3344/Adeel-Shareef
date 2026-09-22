@@ -766,6 +766,7 @@ button, input, textarea { font: inherit; }
 
 .skills-intro {
   max-width: 520px;
+  padding-left: clamp(0px, 5vw, 68px);
 }
 
 .skills-description {
@@ -1588,6 +1589,10 @@ button, input, textarea { font: inherit; }
   .contact-box,
   .skills-layout {
     grid-template-columns: 1fr;
+  }
+
+  .skills-intro {
+    padding-left: 0;
   }
 
   .topbar {
