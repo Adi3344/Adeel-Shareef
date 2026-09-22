@@ -1886,6 +1886,31 @@ a.contact-item:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .contact-form {
+    gap: 12px;
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .contact-form::before {
+    padding-bottom: 10px;
+    font-size: 1rem;
+  }
+
+  .contact-form label {
+    gap: 5px;
+    font-size: 0.62rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 11px 13px;
+    border-radius: 10px;
+  }
+
+  .contact-form input { min-height: 42px; }
+  .contact-form textarea { min-height: 84px; }
+
   .skill-head {
     gap: 8px;
   }
