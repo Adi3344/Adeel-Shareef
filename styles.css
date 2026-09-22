@@ -864,6 +864,7 @@ button, input, textarea { font: inherit; }
 @keyframes chipFloat { 50% { transform: translateY(-5px); } }
 
 .skills-shell {
+  transform: translateX(clamp(-68px, -5vw, 0px));
   padding: 30px 28px 26px;
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 26px;
@@ -1593,6 +1594,10 @@ button, input, textarea { font: inherit; }
 
   .skills-intro {
     padding-left: 0;
+  }
+
+  .skills-shell {
+    transform: none;
   }
 
   .topbar {
