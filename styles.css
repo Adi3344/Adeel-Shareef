@@ -920,6 +920,7 @@ button, input, textarea { font: inherit; }
 
 .skill-track span {
   position: absolute;
+  overflow: hidden;
   inset: 0 auto 0 0;
   display: block;
   border-radius: inherit;
@@ -927,11 +928,31 @@ button, input, textarea { font: inherit; }
   box-shadow: 0 0 18px rgba(238, 155, 101, 0.28);
   transform: scaleX(0);
   transform-origin: left;
-  animation: skillFill 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: skillFill 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards, skillGlow 3.2s ease-in-out 1.1s infinite;
+}
+
+.skill-track span::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 -35%;
+  width: 35%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.68), transparent);
+  transform: skewX(-18deg);
+  animation: skillShimmer 2.8s ease-in-out 1.4s infinite;
 }
 
 @keyframes skillFill {
   to { transform: scaleX(1); }
+}
+
+@keyframes skillShimmer {
+  0%, 35% { left: -35%; }
+  70%, 100% { left: 115%; }
+}
+
+@keyframes skillGlow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.14); }
 }
 
 .about-grid {
