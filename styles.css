@@ -81,6 +81,16 @@ button, input, textarea { font: inherit; }
   box-shadow: 0 14px 28px rgba(238, 155, 101, 0.22);
 }
 
+.brand-logo {
+  display: block;
+  width: 58px;
+  height: 42px;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+}
+
 .nav-toggle {
   display: none;
   width: 42px;
@@ -720,12 +730,12 @@ button, input, textarea { font: inherit; }
 .work,
 .testimonial,
 .contact {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-block: clamp(42px, 6vw, 76px);
 }
 
 .section-heading {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .section-tag {
@@ -745,6 +755,15 @@ button, input, textarea { font: inherit; }
   letter-spacing: -0.05em;
 }
 
+.section-heading::after {
+  content: '';
+  display: block;
+  width: 92px;
+  height: 2px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+}
+
 @media (max-width: 640px) {
   .section-heading h2 {
     font-size: clamp(1.8rem, 6.5vw, 2.4rem);
@@ -762,8 +781,7 @@ button, input, textarea { font: inherit; }
 }
 
 .skills-section {
-  padding-top: 36px;
-  padding-bottom: 16px;
+  padding-block: clamp(42px, 6vw, 76px);
 }
 
 .skills-layout {
@@ -776,6 +794,8 @@ button, input, textarea { font: inherit; }
 .skills-intro {
   max-width: 520px;
 }
+
+.skills-heading { margin-bottom: 24px; }
 
 .skills-intro h2 {
   max-width: 500px;
@@ -1268,20 +1288,22 @@ button, input, textarea { font: inherit; }
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(36px, 7vw, 92px);
   padding: clamp(38px, 5vw, 64px) clamp(26px, 6vw, 64px);
-  border: 1px solid rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
   border-radius: 24px;
-  background: #28282b;
-  box-shadow: 0 26px 70px rgba(0,0,0,0.16);
+  background: linear-gradient(145deg, #171c23, #24252a 72%, #282124);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 26px 70px rgba(0,0,0,0.24);
 }
 
 .contact-copy h2 {
   max-width: 390px;
-  margin: 0 0 30px;
+  margin: 0 auto 30px;
   font-family: var(--heading-font);
   font-size: clamp(2.5rem, 4vw, 4.25rem);
   line-height: 1.03;
   letter-spacing: -0.06em;
 }
+
+.contact-heading { margin-bottom: 30px; }
 
 .mail-link {
   color: var(--muted);
