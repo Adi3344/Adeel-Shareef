@@ -1346,16 +1346,71 @@ button, input, textarea { font: inherit; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 26px 70px rgba(0,0,0,0.24);
 }
 
-.contact-copy h2 {
-  max-width: 390px;
-  margin: 0 auto 30px;
-  font-family: var(--heading-font);
-  font-size: clamp(2.5rem, 4vw, 4.25rem);
-  line-height: 1.03;
-  letter-spacing: -0.06em;
+.contact-visual {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 18px;
 }
 
-.contact-heading { margin-bottom: 30px; }
+.contact-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(238,155,101,0.35);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: contactOrbit 9s linear infinite;
+}
+
+.orbit-large { width: 150px; height: 84px; }
+.orbit-small { width: 104px; height: 150px; animation-direction: reverse; animation-duration: 7s; }
+
+.contact-orbit-core {
+  position: absolute;
+  top: calc(50% - 29px);
+  left: calc(50% - 29px);
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(238,155,101,0.7);
+  border-radius: 18px;
+  background: var(--primary);
+  color: #1c130d;
+  font-size: 1.45rem;
+  box-shadow: 0 0 34px rgba(238,155,101,0.28);
+  animation: contactCore 2.8s ease-in-out infinite;
+}
+
+.contact-float {
+  position: absolute;
+  padding: 5px 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  background: rgba(18,24,33,0.88);
+  color: rgba(255,255,255,0.72);
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.contact-float-one { top: 16px; left: 4px; animation: contactFloat 4s ease-in-out infinite; }
+.contact-float-two { right: 0; bottom: 18px; animation: contactFloat 4.5s ease-in-out -1.5s infinite; }
+
+.contact-visual-copy {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-visual-copy strong { font-family: var(--heading-font); font-size: 1.2rem; }
+.contact-visual-copy span { color: var(--muted); font-size: 0.82rem; }
+
+@keyframes contactOrbit { to { transform: translate(-50%, -50%) rotate(360deg); } }
+@keyframes contactCore { 50% { transform: translateY(-6px) rotate(-4deg); } }
+@keyframes contactFloat { 50% { transform: translateY(-6px); } }
 
 .mail-link {
   color: var(--muted);
