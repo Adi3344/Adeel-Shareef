@@ -902,8 +902,34 @@ button, input, textarea { font: inherit; }
 }
 
 .about-grid p + p { margin-top: 16px; }
+.about-copy { padding: 10px 0 16px; }
 .about-button { margin-top: 26px; }
 .about-image-wrap { position: relative; padding: 10px 10px 28px 0; }
+
+.about-details {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.about-details div { display: grid; gap: 5px; }
+.about-details strong {
+  color: var(--text);
+  font-family: var(--heading-font);
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.about-details span {
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 
 .about-image-frame {
   position: relative;
