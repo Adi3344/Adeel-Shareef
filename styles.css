@@ -1471,12 +1471,22 @@ button, input, textarea { font: inherit; }
 .contact-visual-copy {
   display: grid;
   gap: 5px;
-  margin-bottom: 30px;
+  max-width: 360px;
+  margin-bottom: 28px;
   text-align: left;
 }
 
-.contact-visual-copy strong { font-family: var(--heading-font); font-size: 1.2rem; }
-.contact-visual-copy span { color: var(--muted); font-size: 0.82rem; }
+.contact-visual-copy strong {
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  letter-spacing: -0.04em;
+}
+
+.contact-visual-copy span {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
 
 @keyframes contactOrbit { to { transform: translate(-50%, -50%) rotate(360deg); } }
 @keyframes contactCore { 50% { transform: translateY(-6px) rotate(-4deg); } }
@@ -1488,7 +1498,9 @@ button, input, textarea { font: inherit; }
 
 .contact-meta {
   display: grid;
-  gap: 24px;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.1);
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -1497,7 +1509,19 @@ button, input, textarea { font: inherit; }
   display: flex;
   align-items: center;
   gap: 18px;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
   line-height: 1.4;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+a.contact-item:hover,
+a.contact-item:focus-visible {
+  border-color: rgba(238,155,101,0.18);
+  background: rgba(238,155,101,0.06);
+  color: var(--text);
 }
 
 .contact-item i {
@@ -1510,20 +1534,28 @@ button, input, textarea { font: inherit; }
 
 .contact-socials {
   display: flex;
-  gap: 26px;
-  margin-top: 42px;
+  gap: 10px;
+  margin-top: 26px;
 }
 
 .contact-socials a {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
   color: rgba(255,255,255,0.64);
-  font-size: 1.15rem;
-  transition: color 0.2s ease, transform 0.2s ease;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .contact-socials a:hover,
 .contact-socials a:focus-visible {
   color: var(--primary-strong);
   transform: translateY(-2px);
+  border-color: rgba(238,155,101,0.45);
+  background: rgba(238,155,101,0.08);
 }
 
 .contact-form {
