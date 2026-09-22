@@ -720,6 +720,8 @@ button, input, textarea { font: inherit; }
 
 .heading-desktop { display: inline; }
 .heading-mobile { display: none; }
+.copy-desktop { display: inline; }
+.copy-mobile { display: none; }
 
 .section-heading::after {
   content: '';
@@ -733,6 +735,8 @@ button, input, textarea { font: inherit; }
 @media (max-width: 640px) {
   .heading-desktop { display: none; }
   .heading-mobile { display: inline; }
+  .copy-desktop { display: none; }
+  .copy-mobile { display: inline; }
 
   .section-heading h2 {
     font-size: clamp(1.8rem, 6.5vw, 2.4rem);
