@@ -934,7 +934,8 @@ button, input, textarea { font: inherit; }
 .about-image-frame {
   position: relative;
   aspect-ratio: 1 / 1.05;
-  width: 100%;
+  width: min(100%, 390px);
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 22px;
   background: #20262e;
