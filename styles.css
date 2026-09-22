@@ -1530,6 +1530,23 @@ button, input, textarea { font: inherit; }
   display: grid;
   align-content: center;
   gap: 16px;
+  padding: 26px;
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 20px;
+  background: rgba(8,11,16,0.24);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.contact-form::before {
+  content: 'Tell me about your project';
+  display: block;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  font-family: var(--heading-font);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 .field-row {
@@ -1542,9 +1559,10 @@ button, input, textarea { font: inherit; }
   display: grid;
   gap: 7px;
   color: rgba(255,255,255,0.7);
-  font-size: 0.75rem;
-  letter-spacing: 0;
-  text-transform: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .contact-form input,
@@ -1552,11 +1570,12 @@ button, input, textarea { font: inherit; }
   width: 100%;
   border: 1px solid rgba(255,255,255,0.16);
   border-radius: 12px;
-  background: rgba(0,0,0,0.06);
+  background: rgba(255,255,255,0.035);
   color: var(--text);
-  padding: 13px 16px;
+  padding: 13px 15px;
   resize: vertical;
   font-size: 0.9rem;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .contact-form input { min-height: 46px; }
@@ -1566,7 +1585,8 @@ button, input, textarea { font: inherit; }
 .contact-form textarea:focus {
   outline: none;
   border-color: rgba(238,155,101,0.7);
-  box-shadow: 0 0 0 3px rgba(238,155,101,0.1);
+  background: rgba(238,155,101,0.06);
+  box-shadow: 0 0 0 3px rgba(238,155,101,0.1), 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .contact-form input::placeholder,
@@ -1578,6 +1598,19 @@ button, input, textarea { font: inherit; }
   width: 100%;
   min-height: 48px;
   border-radius: 12px;
+  position: relative;
+}
+
+.contact-form .button::after {
+  content: '\2192';
+  margin-left: 10px;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.contact-form .button:hover::after,
+.contact-form .button:focus-visible::after {
+  transform: translateX(4px);
 }
 
 .contact-form .button:disabled {
