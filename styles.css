@@ -1211,14 +1211,16 @@ button, input, textarea { font: inherit; }
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   filter: saturate(1) contrast(1.03) brightness(0.96);
-  transition: filter 0.35s ease;
+  transition: transform 0.52s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
+  transform-origin: center center;
 }
 
 .project-card:hover .project-visual img,
 .project-card:focus-within .project-visual img {
+  transform: scale(1.12) translateY(-6px);
   filter: saturate(1.08) contrast(1.06) brightness(1);
 }
 
