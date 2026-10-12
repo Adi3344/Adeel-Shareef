@@ -59,6 +59,43 @@ if (navToggle && siteNav) {
     });
   });
 }
+
+const typedText = document.querySelector('.typing-text');
+if (typedText) {
+  const words = ['Adeel Shareef', 'WordPress Developer', 'SEO Expert', 'Web Designer'];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const updateTypedText = () => {
+    const currentWord = words[wordIndex];
+
+    if (!isDeleting) {
+      charIndex += 1;
+      typedText.textContent = currentWord.slice(0, charIndex);
+
+      if (charIndex === currentWord.length) {
+        isDeleting = true;
+        setTimeout(updateTypedText, 900);
+        return;
+      }
+    } else {
+      charIndex -= 1;
+      typedText.textContent = currentWord.slice(0, charIndex);
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+    }
+
+    const speed = isDeleting ? 60 : 120;
+    setTimeout(updateTypedText, speed);
+  };
+
+  updateTypedText();
+}
+
 const contactForm = document.getElementById('contact-form');
 const formStatus = contactForm?.querySelector('.form-status');
 const submitButton = contactForm?.querySelector('button[type="submit"]');
