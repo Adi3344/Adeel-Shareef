@@ -13,6 +13,10 @@ The contact form stores submissions in Supabase and sends a notification email t
 
 Submissions remain in Supabase even if the email provider later has an outage, so they can be reviewed from the `contact_submissions` table.
 
+## Portfolio assistant
+
+The chat widget answers common portfolio questions with built-in responses. To enable natural-language AI replies, add `OPENAI_API_KEY` to the Vercel project environment variables and redeploy. `OPENAI_MODEL` is optional and defaults to `gpt-4o-mini`. Keep the API key server-side; never add it to browser JavaScript.
+
 ## Run locally
 
 ```bash

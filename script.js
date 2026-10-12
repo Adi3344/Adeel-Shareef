@@ -94,3 +94,94 @@ if (contactForm && formStatus && submitButton) {
     }
   });
 }
+
+const chatPanel = document.getElementById('chat-panel');
+const chatToggle = document.getElementById('chat-toggle');
+const chatClose = document.getElementById('chat-close');
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+const chatPrompts = document.getElementById('chat-prompts');
+const chatStatus = document.getElementById('chat-status');
+const chatSend = document.getElementById('chat-send');
+
+if (chatPanel && chatToggle && chatClose && chatForm && chatInput && chatMessages && chatStatus && chatSend) {
+  const conversation = [];
+  const chatIcon = chatToggle.querySelector('i');
+
+  const addMessage = (role, text) => {
+    const item = document.createElement('li');
+    const message = document.createElement('p');
+    item.className = `chat-message is-${role}`;
+    message.textContent = text;
+    item.append(message);
+    chatMessages.append(item);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  };
+
+  const setChatOpen = (open) => {
+    chatPanel.hidden = !open;
+    chatToggle.setAttribute('aria-expanded', String(open));
+    chatToggle.setAttribute('aria-label', open ? 'Close portfolio assistant' : 'Open portfolio assistant');
+    if (chatIcon) chatIcon.className = open ? 'las la-times' : 'las la-comment-dots';
+    if (open) chatInput.focus();
+    else chatToggle.focus();
+  };
+
+  const sendMessage = async (text) => {
+    const message = text.trim().slice(0, 1200);
+    if (!message || chatSend.disabled) return;
+
+    addMessage('user', message);
+    conversation.push({ role: 'user', content: message });
+    chatInput.value = '';
+    chatInput.disabled = true;
+    chatSend.disabled = true;
+    chatStatus.textContent = 'Thinking...';
+    if (chatPrompts) chatPrompts.hidden = true;
+
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: conversation.slice(-10),
+          website: chatForm.elements.website.value
+        })
+      });
+      const result = await response.json();
+      if (!response.ok || typeof result.reply !== 'string') {
+        throw new Error(result.error || 'Unable to get a reply.');
+      }
+
+      addMessage('assistant', result.reply);
+      conversation.push({ role: 'assistant', content: result.reply });
+      if (conversation.length > 10) conversation.splice(0, conversation.length - 10);
+      chatStatus.textContent = '';
+    } catch {
+      const fallback = 'Sorry, I could not reply just now. You can contact Adeel at adeelshareef761@gmail.com or use the contact form.';
+      addMessage('assistant', fallback);
+      conversation.push({ role: 'assistant', content: fallback });
+      chatStatus.textContent = 'Reply service is temporarily unavailable.';
+    } finally {
+      chatInput.disabled = false;
+      chatSend.disabled = false;
+      chatInput.focus();
+    }
+  };
+
+  chatToggle.addEventListener('click', () => setChatOpen(chatPanel.hidden));
+  chatClose.addEventListener('click', () => setChatOpen(false));
+  chatForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    sendMessage(chatInput.value);
+  });
+
+  chatPrompts?.querySelectorAll('[data-chat-prompt]').forEach((button) => {
+    button.addEventListener('click', () => sendMessage(button.dataset.chatPrompt || ''));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !chatPanel.hidden) setChatOpen(false);
+  });
+}
