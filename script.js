@@ -59,42 +59,6 @@ if (navToggle && siteNav) {
     });
   });
 }
-const typingText = document.querySelector('.typing-text');
-
-if (typingText) {
-  const words = ['Adeel Shareef', 'WordPress Developer', 'Digital Designer'];
-  let wordIndex = 0;
-  let charIndex = 0;
-  let deleting = false;
-
-  const typeLoop = () => {
-    const currentWord = words[wordIndex];
-    if (!deleting) {
-      charIndex += 1;
-      typingText.textContent = currentWord.slice(0, charIndex);
-
-      if (charIndex === currentWord.length) {
-        deleting = true;
-        setTimeout(typeLoop, 1200);
-        return;
-      }
-    } else {
-      charIndex -= 1;
-      typingText.textContent = currentWord.slice(0, charIndex);
-
-      if (charIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-      }
-    }
-
-    const speed = deleting ? 45 : 85;
-    setTimeout(typeLoop, speed);
-  };
-
-  typeLoop();
-}
-
 const contactForm = document.getElementById('contact-form');
 const formStatus = contactForm?.querySelector('.form-status');
 const submitButton = contactForm?.querySelector('button[type="submit"]');
