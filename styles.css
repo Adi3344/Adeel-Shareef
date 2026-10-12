@@ -2141,9 +2141,9 @@ a.contact-item:focus-visible {
   .chat-widget { right: 14px; bottom: 14px; }
   .chat-toggle { width: 54px; height: 54px; }
   .chat-panel {
-    right: -2px;
+    right: 0;
     bottom: 66px;
-    width: min(380px, calc(100vw - 24px));
+    width: min(380px, calc(100vw - 40px));
     height: min(580px, calc(100dvh - 96px));
     min-height: 340px;
   }
