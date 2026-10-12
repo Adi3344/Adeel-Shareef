@@ -1,6 +1,14 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/blog.html", "destination": "/blog/wordpress-website-design-for-small-businesses-in-pakistan", "statusCode": 301 },
+    { "source": "/blog2.html", "destination": "/blog/seo-friendly-website-structure", "statusCode": 301 },
+    { "source": "/blog3.html", "destination": "/blog/custom-website-development-vs-template-websites", "statusCode": 301 },
+    { "source": "/blog4.html", "destination": "/blog/professional-web-design-more-leads", "statusCode": 301 },
+    { "source": "/blog5.html", "destination": "/blog/local-seo-business-website", "statusCode": 301 },
+    { "source": "/blog6.html", "destination": "/blog/website-optimization-tips-higher-conversions", "statusCode": 301 }
+  ],
   "headers": [
     {
       "source": "/(.*)",

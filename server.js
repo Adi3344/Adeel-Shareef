@@ -60,9 +60,9 @@ function serveStatic(req, res) {
     return;
   }
 
-  fs.readFile(filePath, (error, content) => {
-    if (error) {
-      if (error.code === 'ENOENT') {
+  const tryRead = (targetPath, finalCallback) => {
+    fs.readFile(targetPath, (error, content) => {
+      if (error && error.code === 'ENOENT') {
         const fallbackPath = path.join(rootDir, 'index.html');
         fs.readFile(fallbackPath, (fallbackError, fallbackContent) => {
           if (fallbackError) {
@@ -77,12 +77,24 @@ function serveStatic(req, res) {
         return;
       }
 
-      res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
-      res.end('Server error');
-      return;
-    }
+      if (error && error.code === 'EISDIR') {
+        const indexPath = path.join(targetPath, 'index.html');
+        tryRead(indexPath, finalCallback);
+        return;
+      }
 
-    const ext = path.extname(filePath).toLowerCase();
+      if (error) {
+        res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('Server error');
+        return;
+      }
+
+      finalCallback(content, targetPath);
+    });
+  };
+
+  tryRead(filePath, (content, resolvedPath) => {
+    const ext = path.extname(resolvedPath).toLowerCase();
     res.writeHead(200, { 'Content-Type': mimeTypes[ext] || 'application/octet-stream' });
     res.end(content);
   });
