@@ -111,7 +111,7 @@ module.exports = async (request, response) => {
             </div>
             <a href="mailto:${escapeHtml(submission.email)}" style="display:inline-block;margin-top:24px;padding:12px 20px;background:#ee9b65;color:#1c130d;text-decoration:none;border-radius:6px;font-size:14px;font-weight:bold;">Reply to ${escapeHtml(submission.full_name)}</a>
           </div>
-          <div style="padding:18px 32px;border-top:1px solid #e8e8e8;color:#8993a1;font-size:12px;">Sent from adeel-shareef-ad.vercel.app</div>
+          <div style="padding:18px 32px;border-top:1px solid #e8e8e8;color:#8993a1;font-size:12px;">Sent from codebyadeel.site</div>
         </div>
       </div>`;
 
